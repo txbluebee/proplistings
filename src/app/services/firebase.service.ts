@@ -11,6 +11,13 @@ export class FirebaseService {
   getListing(){
     return this.listings;
   }
+
+  getListingDetails(listingId) {
+    return this.database.object('listings/' + listingId);
+
+  }
+
+  //@TODO Storage ref
 }
 
 interface Listing{
