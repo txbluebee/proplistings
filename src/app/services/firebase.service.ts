@@ -24,6 +24,10 @@ export class FirebaseService {
     this.listings.push(listing);
   }
 
+  updateListing(id, listing) {
+    return this.listings.update(id, listing);
+  }
+
 }
 
 // interface Listing{
