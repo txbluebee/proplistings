@@ -9,6 +9,8 @@ import { FirebaseListObservable } from 'angularfire2/database';
 })
 export class ListingsComponent implements OnInit {
   listings: FirebaseListObservable<any[]>;
+
+  
   constructor(private firebaseService: FirebaseService) { }
 
   ngOnInit() {

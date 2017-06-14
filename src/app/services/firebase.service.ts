@@ -1,15 +1,12 @@
 import { Injectable } from '@angular/core';
-import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+import { AngularFireDatabase, FirebaseListObservable} from 'angularfire2/database';
 
 @Injectable()
 export class FirebaseService {
   listings: FirebaseListObservable<any[]>;
-  folder: any;
-
 
   constructor(private database: AngularFireDatabase) {
-    this.listings = database.list('listings');
-    this.folder = 'listingimages';
+    this.listings = database.list('/listings');
   }
 
   getListing(){
@@ -17,7 +14,7 @@ export class FirebaseService {
   }
 
   getListingDetails(listingId) {
-    return this.database.object('listings/' + listingId);
+    return this.database.object('/listings/' + listingId);
   }
 
   addListing(listing){
@@ -33,13 +30,3 @@ export class FirebaseService {
   }
 
 }
-
-// interface Listing{
-//   $key?:string;
-//   title?:string;
-//   type?:string;
-//   image?:string;
-//   city?:string;
-//   owner?:string;
-//   bedrooms?:string;
-// }

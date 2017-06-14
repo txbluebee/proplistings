@@ -22,7 +22,6 @@ export class ListingComponent implements OnInit {
     //Get ID
     this.id = this.route.snapshot.params['id'];
     this.listing = this.firebaseService.getListingDetails(this.id);
-    console.log(this.listing);
   }
 
   onDeleteClick(){
