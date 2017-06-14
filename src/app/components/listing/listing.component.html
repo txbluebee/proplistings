@@ -16,5 +16,5 @@
     {{(listing | async)?.$skey}}
   </div>
   <a class="btn btn-default" [routerLink]="['/edit-listing/' + id]">Edit</a>
-  <a class="btn btn-danger" href="#">Delete</a>
+  <a (click)="onDeleteClick()" class="btn btn-danger">Delete</a>
 </div>
