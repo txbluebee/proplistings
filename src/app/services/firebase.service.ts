@@ -4,8 +4,12 @@ import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/databa
 @Injectable()
 export class FirebaseService {
   listings: FirebaseListObservable<any[]>;
+  folder: any;
+
+
   constructor(private database: AngularFireDatabase) {
     this.listings = database.list('listings');
+    this.folder = 'listingimages';
   }
 
   getListing(){
@@ -14,18 +18,20 @@ export class FirebaseService {
 
   getListingDetails(listingId) {
     return this.database.object('listings/' + listingId);
-
   }
 
-  //@TODO Storage ref
+  addListing(listing){
+    this.listings.push(listing);
+  }
+
 }
 
-interface Listing{
-  $key?:string;
-  title?:string;
-  type?:string;
-  image?:string;
-  city?:string;
-  owner?:string;
-  bedrooms?:string;
-}
+// interface Listing{
+//   $key?:string;
+//   title?:string;
+//   type?:string;
+//   image?:string;
+//   city?:string;
+//   owner?:string;
+//   bedrooms?:string;
+// }
